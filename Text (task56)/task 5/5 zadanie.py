@@ -1,3 +1,11 @@
+"""Скопируйте из исходников файл reviews.csv в свой проект.
+
+Подготовьте данные для обучения, как на занятии: оставьте только буквы и пробелы (без лишних пробелов), проведите лемматизацию слов, удалите стоп-слова.
+
+Сохраните обработанные отзывы в файл reviews_preprocessed.csv со столбцами: review и label. Примечание: в столбце label должен быть 1, если отзыв позитивный и 0, если он негативный.
+"""
+
+
 import pandas as pd
 from tqdm import tqdm
 import re
@@ -13,8 +21,8 @@ nltk.download('wordnet')
 
 def preprocess_text(text):
     text = re.sub(r'\s+', ' ', text)
-    text = re.sub(r'[^\w\s]', ' ', text)
-    text = re.sub(r'\d', ' ', text)
+    text = re.sub(r'[^\w\s]', '', text)
+    text = re.sub(r'\d', '', text)
     text = word_tokenize(text)
     stopwords_set = set(nltk.corpus.stopwords.words('english'))
     text = [t for t in text if t not in stopwords_set]

@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+data/
+Data_10/
+*.pth
+*.csv
+*.tar.gz
